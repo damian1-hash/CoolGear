@@ -160,12 +160,12 @@ header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:co
 .panel h3{font-size:1.3rem}
 .lines{display:grid;gap:0;font-variant-numeric:tabular-nums}
 .lines div{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:.95rem}
-.lines div span:last-child{font-family:var(--mono);white-space:nowrap}
+.lines div > span:last-child{font-family:var(--mono);white-space:nowrap}
 .lines .tot{border-bottom:0;border-top:1px solid var(--fg);font-weight:600}
 .lines small{display:block;color:var(--muted);font-size:.78rem}
-.timeline{display:grid;grid-template-columns:repeat(3,1fr);position:relative;margin-top:6px}
+.timeline{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));position:relative;margin-top:6px}
 .timeline::before{content:"";position:absolute;top:7px;left:8px;right:8px;height:1px;background:var(--line)}
-.tl{position:relative;display:grid;gap:6px;padding-right:10px;font-size:.8rem;color:var(--muted)}
+.tl{position:relative;display:grid;gap:6px;padding-right:10px;overflow-wrap:break-word;hyphens:auto;font-size:.8rem;color:var(--muted)}
 .tl i{width:15px;height:15px;border-radius:50%;background:var(--bg);border:2px solid var(--fg);position:relative}
 .tl:last-child i{background:var(--red);border-color:var(--red)}
 .tl b{color:var(--fg);font-size:.86rem}
@@ -257,7 +257,12 @@ footer{padding-block:56px 36px;border-top:1px solid var(--line)}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .nav .btn{white-space:nowrap}
 .short{display:none}
-@media (max-width:520px){.long{display:none}.short{display:inline}.lang{padding:6px 8px}}
+@media (max-width:520px){.long{display:none}.short{display:inline}.lang{padding:6px 8px}
+  .nav{gap:10px}.nav-right{gap:6px}
+  header .logo{font-size:1rem;gap:6px}header .logo .mark{width:10px;height:10px}
+  header .langs button{padding:6px 7px}
+  .nav .btn{padding:.55em .8em}}
+@media (max-width:359px){.nav .btn{display:none}}
 .later{margin-top:28px;font-size:.84rem;color:var(--muted);font-family:var(--mono);letter-spacing:.02em}
 .hyg.two{grid-template-columns:1fr 1fr}
 @media (max-width:900px){.hyg.two{grid-template-columns:1fr}}
